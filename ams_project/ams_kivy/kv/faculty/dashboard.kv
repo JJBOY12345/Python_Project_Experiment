@@ -1,0 +1,105 @@
+<FacultyDashboard>:
+    name_label: name_label
+    
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        
+        MDTopAppBar:
+            title: "Faculty Dashboard"
+            elevation: 4
+            right_action_items: [["logout", lambda x: root.logout()]]
+        
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: dp(20)
+            spacing: dp(20)
+            
+            MDLabel:
+                id: name_label
+                text: "Welcome, Faculty"
+                font_style: 'H5'
+                halign: 'center'
+                size_hint_y: None
+                height: self.texture_size[1]
+            
+            MDGridLayout:
+                cols: 2
+                spacing: dp(20)
+                padding: dp(20)
+                
+                MDCard:
+                    orientation: 'vertical'
+                    padding: dp(16)
+                    size_hint: 1, None
+                    height: "120dp"
+                    on_release: root.mark_attendance()
+                    
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        
+                        MDIcon:
+                            icon: "calendar-edit"
+                            halign: 'center'
+                            font_size: dp(36)
+                        
+                        MDLabel:
+                            text: "Mark Attendance"
+                            halign: 'center'
+                
+                MDCard:
+                    orientation: 'vertical'
+                    padding: dp(16)
+                    size_hint: 1, None
+                    height: "120dp"
+                    on_release: root.view_reports()
+                    
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        
+                        MDIcon:
+                            icon: "file-chart"
+                            halign: 'center'
+                            font_size: dp(36)
+                        
+                        MDLabel:
+                            text: "View Reports"
+                            halign: 'center'
+                
+                MDCard:
+                    orientation: 'vertical'
+                    padding: dp(16)
+                    size_hint: 1, None
+                    height: "120dp"
+                    on_release: root.review_requests()
+                    
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        
+                        MDIcon:
+                            icon: "file-document-edit"
+                            halign: 'center'
+                            font_size: dp(36)
+                        
+                        MDLabel:
+                            text: "Review Requests"
+                            halign: 'center'
+                
+                MDCard:
+                    orientation: 'vertical'
+                    padding: dp(16)
+                    size_hint: 1, None
+                    height: "120dp"
+                    on_release: root.generate_reports()
+                    
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        
+                        MDIcon:
+                            icon: "file-export"
+                            halign: 'center'
+                            font_size: dp(36)
+                        
+                        MDLabel:
+                            text: "Generate Reports"
+                            halign: 'center'
