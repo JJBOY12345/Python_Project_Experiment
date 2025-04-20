@@ -1,0 +1,22 @@
+# Create kv/notifications.kv
+<NotificationsScreen>:
+    notifications_list: notifications_list
+    
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        
+        MDTopAppBar:
+            title: "Notifications"
+            elevation: 4
+            left_action_items: [["arrow-left", lambda x: root.go_back()]]
+        
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: dp(20)
+            spacing: dp(10)
+            
+            MDScrollView:
+                MDList:
+                    id: notifications_list
+                    padding: dp(10)

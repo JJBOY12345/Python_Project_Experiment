@@ -1,0 +1,108 @@
+# Create kv/student/excuse.kv
+<ExcuseRequestScreen>:
+    course_dropdown: course_dropdown
+    date_picker_button: date_picker_button
+    reason_input: reason_input
+    document_upload_button: document_upload_button
+    submit_button: submit_button
+    
+    MDBoxLayout:
+        orientation: 'vertical'
+        padding: dp(20)
+        
+        MDTopAppBar:
+            title: "Submit Excuse for Absence"
+            elevation: 4
+            left_action_items: [["arrow-left", lambda x: root.go_back()]]
+        
+        MDBoxLayout:
+            orientation: 'vertical'
+            padding: dp(20)
+            spacing: dp(20)
+            
+            MDCard:
+                orientation: 'vertical'
+                padding: dp(20)
+                spacing: dp(20)
+                
+                MDLabel:
+                    text: "Request Absence Excuse"
+                    font_style: 'H6'
+                    halign: 'center'
+                    size_hint_y: None
+                    height: self.texture_size[1]
+                
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    spacing: dp(10)
+                    adaptive_height: True
+                    
+                    MDLabel:
+                        text: "Course"
+                        theme_text_color: "Secondary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    
+                    MDFlatButton:
+                        id: course_dropdown
+                        text: "Select Course"
+                        size_hint_x: 1
+                        on_release: root.course_menu.open()
+                
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    spacing: dp(10)
+                    adaptive_height: True
+                    
+                    MDLabel:
+                        text: "Date of Absence"
+                        theme_text_color: "Secondary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    
+                    MDFlatButton:
+                        id: date_picker_button
+                        text: "Select Date"
+                        size_hint_x: 1
+                        on_release: root.show_date_picker()
+                
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    spacing: dp(10)
+                    adaptive_height: True
+                    
+                    MDLabel:
+                        text: "Reason for Absence"
+                        theme_text_color: "Secondary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    
+                    MDTextField:
+                        id: reason_input
+                        hint_text: "Explain why you were absent"
+                        multiline: True
+                        max_height: "100dp"
+                
+                MDBoxLayout:
+                    orientation: 'vertical'
+                    spacing: dp(10)
+                    adaptive_height: True
+                    
+                    MDLabel:
+                        text: "Supporting Document (Optional)"
+                        theme_text_color: "Secondary"
+                        size_hint_y: None
+                        height: self.texture_size[1]
+                    
+                    MDFlatButton:
+                        id: document_upload_button
+                        text: "Attach Document"
+                        size_hint_x: 1
+                        on_release: root.select_file()
+                
+                MDRaisedButton:
+                    id: submit_button
+                    text: "Submit Excuse Request"
+                    on_release: root.submit_excuse()
+                    size_hint_x: 1
+                    height: "48dp"

@@ -1,0 +1,58 @@
+#:import dp kivy.metrics.dp
+
+<ReviewRequestsScreen>:
+    name: "review_requests"
+    MDBoxLayout:
+        orientation: "vertical"
+        padding: dp(10)
+        spacing: dp(10)
+        MDLabel:
+            text: "Pending Correction & Excuse Requests"
+            halign: "center"
+            font_style: "H5"
+        ScrollView:
+            MDBoxLayout:
+                id: requests_container
+                orientation: "vertical"
+                spacing: dp(10)
+                size_hint_y: None
+                height: self.minimum_height
+
+<ReviewRequestItem@MDCard>:
+    size_hint_y: None
+    height: dp(140)
+    padding: dp(10)
+    elevation: 4
+    MDBoxLayout:
+        orientation: "vertical"
+        spacing: dp(5)
+        MDLabel:
+            id: student_label
+            text: "Student Name"
+            font_style: "Subtitle1"
+            bold: True
+        MDLabel:
+            id: request_type
+            text: "Request Type"
+            font_style: "Caption"
+        MDLabel:
+            id: request_message
+            text: "Request message"
+            text_size: self.width, None
+        MDBoxLayout:
+            size_hint_y: None
+            height: dp(40)
+            spacing: dp(10)
+            MDRaisedButton:
+                id: approve_btn
+                text: "Approve"
+                md_bg_color: 0, 1, 0, 1
+            MDRaisedButton:
+                id: reject_btn
+                text: "Reject"
+                md_bg_color: 1, 0, 0, 1
+
+<NoRequestsLabel@MDLabel>:
+    text: "No pending requests found."
+    halign: "center"
+    theme_text_color: "Secondary"
